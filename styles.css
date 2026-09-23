@@ -1,0 +1,134 @@
+:root{
+  --blue:#0e8fd4;
+  --blue-dark:#0a6a9e;
+  --flame:#ef4d1f;
+  --black:#0d0d0d;
+  --text:#1a1a1a;
+  --muted:#68737c;
+  --light:#f2f8fb;
+  --white:#fff;
+  --border:#e2edf3;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(1100px,92%);margin:auto}
+
+/* Header — dark, unlike Azuline's white header */
+header{background:var(--black);border-bottom:3px solid var(--blue)}
+.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:10px 0}
+.brand img{height:44px;width:auto}
+nav.site-links{display:flex;gap:20px;font-weight:700;font-size:14px;flex-wrap:wrap}
+nav.site-links a{color:#fff;opacity:0.85}
+nav.site-links a:hover,nav.site-links a.active{opacity:1;color:var(--blue)}
+
+/* Hero — full-bleed centered, not split grid */
+.hero{background:linear-gradient(160deg,var(--black) 0%,#132a36 100%);color:#fff;padding:70px 20px;text-align:center}
+.hero img.hero-logo{height:90px;margin-bottom:24px}
+.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.15;margin-bottom:16px}
+.hero h1 span{color:var(--flame)}
+.hero p{max-width:620px;margin:0 auto 30px;color:#cfe4ee;font-size:16px}
+.hero-btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 26px;border-radius:6px;font-weight:800;border:0;cursor:pointer;font:inherit}
+.btn-primary{background:var(--flame);color:#fff}
+.btn-primary:hover{background:#c93e14}
+.btn-outline{background:transparent;color:#fff;border:2px solid #fff}
+.btn-outline:hover{background:#fff;color:var(--black)}
+
+/* Trust badge strip — its own horizontal band below hero */
+.trust-strip{background:var(--blue);padding:22px 0}
+.trust-row{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;text-align:center}
+.trust-item{color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;gap:8px}
+.trust-item .icon{font-size:18px}
+
+section{padding:70px 0}
+.section-head{text-align:center;max-width:640px;margin:0 auto 40px}
+.section-head h2{font-size:32px;color:var(--black)}
+.section-head h2 span{color:var(--flame)}
+.section-head p{color:var(--muted);margin-top:10px}
+
+/* Services — two side-by-side panels, not a uniform grid */
+.services-split{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:800px){.services-split{grid-template-columns:1fr}}
+.service-panel{border-radius:10px;padding:30px;background:var(--light);border-top:5px solid var(--blue)}
+.service-panel.commercial{border-top-color:var(--flame)}
+.service-panel h3{font-size:20px;margin-bottom:16px;color:var(--black)}
+.service-panel ul{list-style:none}
+.service-panel li{padding:10px 0;border-bottom:1px solid var(--border);font-size:15px}
+.service-panel li:last-child{border-bottom:0}
+.service-panel li:before{content:"🔥 ";margin-right:6px}
+
+/* Why choose us — icon strip, no card box like Azuline's about-box */
+.why-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+@media(max-width:800px){.why-strip{grid-template-columns:1fr 1fr}}
+.why-item .icon-big{font-size:30px;color:var(--flame);margin-bottom:8px}
+.why-item strong{display:block;color:var(--black);margin-bottom:4px}
+.why-item small{color:var(--muted);font-size:13px}
+
+/* Testimonials */
+.testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.testimonial-card{background:var(--light);padding:24px;border-radius:10px;border-left:4px solid var(--blue)}
+.stars{color:var(--flame);font-size:16px;margin-bottom:10px}
+.testimonial-text{font-size:14px;line-height:1.6;margin-bottom:14px}
+.testimonial-author{font-weight:800;color:var(--black);font-size:13px}
+.testimonial-service{font-weight:400;color:var(--muted)}
+
+/* Quote — single centered column, not split like Azuline's */
+.quote-section{background:var(--black);color:#fff}
+.quote-inner{max-width:560px;margin:0 auto;text-align:center}
+.quote-inner .section-head h2{color:#fff}
+.quote-inner .section-head p{color:#cfe4ee}
+form{background:#fff;padding:28px;border-radius:10px;color:var(--text);text-align:left;margin-top:20px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+input,textarea,select{width:100%;padding:12px;border:1px solid var(--border);border-radius:6px;font:inherit}
+textarea{min-height:110px;resize:vertical}
+.full{grid-column:1/-1}
+@media(max-width:520px){.form-grid{grid-template-columns:1fr}.full{grid-column:auto}}
+
+.page-hero{background:linear-gradient(160deg,var(--black) 0%,#132a36 100%);color:#fff;padding:50px 0;text-align:center}
+.page-hero h1{font-size:clamp(28px,5vw,42px)}
+.page-hero p{color:#cfe4ee;margin-top:8px}
+
+.simple-page{max-width:900px;margin:0 auto;padding:40px 20px 60px}
+.page-title{font-size:22px;margin-bottom:20px;font-weight:800}
+.page-note{text-align:center;color:var(--muted);font-size:12px;font-style:italic;margin-top:20px}
+
+/* Contact tiles */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.contact-tile{background:var(--light);border-radius:10px;padding:26px;text-align:center;border-top:4px solid var(--blue)}
+.contact-tile .icon-big{font-size:26px;color:var(--flame);margin-bottom:10px}
+
+/* Availability calendar (shared pattern, restyled) */
+.diary-note{background:#fff3ec;border:1px solid var(--flame);border-radius:8px;padding:18px 20px;margin-bottom:30px;color:var(--black);font-size:14px;font-weight:700}
+.calendar-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.calendar-nav-btn{background:var(--blue);color:#fff;border:0;border-radius:6px;padding:8px 16px;font-weight:700;cursor:pointer}
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;max-width:600px;margin:0 auto}
+.calendar-daylabel{text-align:center;font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;padding-bottom:6px}
+.calendar-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:6px;font-size:13px;font-weight:700}
+.calendar-day.day-available{background:#e3f7ea;color:#1a7a45}
+.calendar-day.day-unavailable{background:#fbdede;color:#a12626;cursor:pointer}
+.calendar-day.day-unavailable:hover{background:#f5c2c2}
+.calendar-day.day-other-month{background:transparent;color:#ccc}
+.calendar-legend{display:flex;justify-content:center;gap:24px;margin-top:16px;font-size:13px}
+.legend-swatch{display:inline-block;width:14px;height:14px;border-radius:3px;margin-right:6px;vertical-align:middle}
+.legend-available{background:#e3f7ea}
+.legend-unavailable{background:#fbdede}
+.hidden{display:none !important}
+
+/* Owner portal */
+.owner-portal-page{max-width:700px;margin:0 auto;padding:40px 20px}
+.owner-section{background:var(--light);border-radius:10px;padding:24px;margin-bottom:20px}
+.owner-portal-page label{font-size:13px;color:var(--muted);display:block;margin:12px 0 6px}
+.owner-portal-page input{padding:10px;border-radius:6px;border:1px solid var(--border);font-size:14px;width:100%}
+.portal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.secondary-btn{background:none;border:1px solid var(--border);color:var(--text);border-radius:6px;padding:8px 16px;font-size:13px;cursor:pointer}
+.appointment-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px;border:1px solid var(--border);border-radius:8px;font-size:13px;margin-bottom:10px;background:#fff}
+.cancel-btn{border-color:#e8b4b4;color:#a12626}
+.slot-message{font-size:13px;color:var(--flame);min-height:18px;margin-top:6px}
+
+footer{background:var(--black);color:#cfe4ee;padding:35px 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}
+footer h3{color:#fff;margin-bottom:10px}
+footer strong{color:var(--flame)}
+.footer-bottom{border-top:1px solid #223a46;margin-top:25px;padding-top:18px;font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+@media(max-width:700px){.footer-grid{grid-template-columns:1fr}.footer-bottom{display:block}}

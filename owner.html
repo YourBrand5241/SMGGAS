@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMG Gas | Owner Portal</title>
+<link rel="icon" type="image/png" href="logo-dark.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <img src="logo-dark.png" alt="SMG Gas logo">
+    </a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <h1>Owner Portal</h1>
+  </div>
+</div>
+
+<main class="owner-portal-page">
+
+  <section id="login-section" class="owner-section">
+    <h3 style="margin-bottom:14px">Sign In</h3>
+    <label for="login-email">Email</label>
+    <input type="email" id="login-email" placeholder="you@example.com">
+    <label for="login-password">Password</label>
+    <input type="password" id="login-password" placeholder="Password">
+    <button id="login-btn" class="btn btn-primary" style="margin-top:16px">Sign In</button>
+    <p id="login-message" class="slot-message"></p>
+  </section>
+
+  <div id="dashboard-section" class="hidden">
+
+    <div class="portal-header">
+      <p id="signed-in-as" style="color:var(--muted);font-size:13px"></p>
+      <button id="sign-out-btn" class="secondary-btn">Sign Out</button>
+    </div>
+
+    <section class="owner-section">
+      <h3 style="margin-bottom:14px">Quote Requests</h3>
+      <div id="quotes-list"></div>
+    </section>
+
+    <section class="owner-section">
+      <h3 style="margin-bottom:14px">Block Out Availability</h3>
+      <p style="color:var(--muted);font-size:13px">Record a job's dates and details — this blocks the period on the public calendar, and lets you see the job details by clicking that day here.</p>
+      <label for="busy-start">Start date</label>
+      <input type="date" id="busy-start">
+      <label for="busy-end">End date</label>
+      <input type="date" id="busy-end">
+      <label for="busy-customer-name">Customer name</label>
+      <input type="text" id="busy-customer-name" placeholder="Customer name">
+      <label for="busy-address">Property address</label>
+      <input type="text" id="busy-address" placeholder="Job address">
+      <label for="busy-email">Customer email</label>
+      <input type="email" id="busy-email" placeholder="Customer email">
+      <label for="busy-phone">Customer phone</label>
+      <input type="tel" id="busy-phone" placeholder="Customer phone">
+      <label for="busy-reason">Job details / reason</label>
+      <input type="text" id="busy-reason" placeholder="e.g. Boiler installation">
+      <button id="busy-btn" class="btn btn-primary" style="margin-top:16px">Block This Period</button>
+      <p id="busy-message" class="slot-message"></p>
+    </section>
+
+    <section class="owner-section">
+      <h3 style="margin-bottom:14px">Availability Calendar</h3>
+      <p style="color:var(--muted);font-size:13px">Click a red day to see the job booked for that date.</p>
+      <div class="calendar-header">
+        <button class="calendar-nav-btn" id="prev-month">← Prev</button>
+        <h3 id="calendar-label"></h3>
+        <button class="calendar-nav-btn" id="next-month">Next →</button>
+      </div>
+      <div class="calendar-grid" id="calendar-grid"></div>
+      <div class="calendar-legend">
+        <span><span class="legend-swatch legend-available"></span>Available</span>
+        <span><span class="legend-swatch legend-unavailable"></span>Booked</span>
+      </div>
+      <div id="day-detail" class="owner-section hidden" style="margin-top:20px"></div>
+    </section>
+
+  </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="owner.js"></script>
+</body>
+</html>
