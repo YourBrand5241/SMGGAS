@@ -24,7 +24,7 @@ nav.site-links a:hover,nav.site-links a.active{opacity:1;color:var(--blue)}
 
 /* Hero — full-bleed centered, not split grid */
 .hero{background:linear-gradient(160deg,var(--black) 0%,#132a36 100%);color:#fff;padding:70px 20px;text-align:center}
-.hero img.hero-logo{height:90px;margin-bottom:24px}
+.hero img.hero-logo{height:150px;margin-bottom:28px}
 .hero h1{font-size:clamp(30px,5vw,48px);line-height:1.15;margin-bottom:16px}
 .hero h1 span{color:var(--flame)}
 .hero p{max-width:620px;margin:0 auto 30px;color:#cfe4ee;font-size:16px}
