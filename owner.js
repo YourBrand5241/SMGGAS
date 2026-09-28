@@ -6,6 +6,7 @@ const BUSINESS_NAME = "SMG Gas";
 const EMAILJS_SERVICE_ID = "service_m08877i";
 const EMAILJS_TEMPLATE_ID = "template_khedkjr";
 const EMAILJS_PUBLIC_KEY = "fs6q7ZsiYGhRUtas5";
+const GOOGLE_REVIEW_LINK = "PASTE_YOUR_GOOGLE_REVIEW_LINK_HERE";
 
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 if (window.emailjs) emailjs.init(EMAILJS_PUBLIC_KEY);
@@ -258,9 +259,42 @@ function showDayDetail(period) {
     <strong>Email:</strong> ${period.customer_email || "Not given"}<br>
     <strong>Phone:</strong> ${period.customer_phone || "Not given"}<br>
     <strong>Job details:</strong> ${period.reason || "Not given"}<br><br>
+    ${period.customer_email ? `<button class="secondary-btn" id="complete-current-btn">Mark as Completed &amp; Request Review</button><br><br>` : ""}
     <button class="secondary-btn cancel-btn" id="unblock-current-btn">Unblock This Period</button>
   `;
   document.getElementById("unblock-current-btn").addEventListener("click", () => unblockPeriod(period.id));
+  const completeBtn = document.getElementById("complete-current-btn");
+  if (completeBtn) {
+    completeBtn.addEventListener("click", () => markCompletedAndRequestReview(period));
+  }
+}
+
+async function markCompletedAndRequestReview(period) {
+  if (!confirm("Mark this job as completed and email the customer a review request?")) return;
+
+  if (period.customer_email && window.emailjs) {
+    try {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        to_email: period.customer_email,
+        to_name: period.customer_name || "there",
+        business_name: BUSINESS_NAME,
+        email_subject: `How did we do? — ${BUSINESS_NAME}`,
+        email_body: `Hi ${period.customer_name || "there"},\n\nThanks for choosing ${BUSINESS_NAME}. We hope everything went well with your job.\n\nIf you have a moment, we'd really appreciate a quick review:\n${GOOGLE_REVIEW_LINK}\n\nThank you for your support!`,
+      });
+    } catch (err) {
+      console.error("Review request email failed to send:", err);
+      alert("Job will be marked complete, but the review email failed to send.");
+    }
+  }
+
+  const { error } = await supabaseClient.from("busy_periods").delete().eq("id", period.id);
+  if (error) {
+    alert("Couldn't update — please try again.");
+    return;
+  }
+  document.getElementById("day-detail").classList.add("hidden");
+  await loadBusyPeriods();
+  renderCalendar();
 }
 
 async function unblockPeriod(id) {
