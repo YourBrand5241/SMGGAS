@@ -279,7 +279,7 @@ async function markCompletedAndRequestReview(period) {
         to_name: period.customer_name || "there",
         business_name: BUSINESS_NAME,
         email_subject: `How did we do? — ${BUSINESS_NAME}`,
-        email_body: `Hi ${period.customer_name || "there"},\n\nThanks for choosing ${BUSINESS_NAME}. We hope everything went well with your job.\n\nIf you have a moment, we'd really appreciate a quick review:\n${GOOGLE_REVIEW_LINK}\n\nThank you for your support!`,
+        email_body: `Thanks for choosing ${BUSINESS_NAME}. We hope everything went well with your job.\n\nIf you have a moment, we'd really appreciate a quick review:\n${GOOGLE_REVIEW_LINK}\n\nThank you for your support!`,
       });
     } catch (err) {
       console.error("Review request email failed to send:", err);
