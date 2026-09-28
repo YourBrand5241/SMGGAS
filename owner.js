@@ -162,7 +162,7 @@ async function handleBlockPeriod() {
       to_name: nameInput.value.trim() || "there",
       business_name: BUSINESS_NAME,
       email_subject: `Your job is booked in — ${BUSINESS_NAME}`,
-      email_body: `Hi ${nameInput.value.trim() || "there"},\n\nYour job with ${BUSINESS_NAME} is booked in.\n\nDates: ${startInput.value} to ${endInput.value}\n${addressInput.value.trim() ? `Address: ${addressInput.value.trim()}\n` : ""}${reasonInput.value.trim() ? `Job: ${reasonInput.value.trim()}\n` : ""}\nWe'll see you then. If anything needs to change, just get in touch.`,
+      email_body: `email_body: `Your job with ${BUSINESS_NAME} is booked in.\n\nDates: ${startInput.value} to ${endInput.value}\n${addressInput.value.trim() ? `Address: ${addressInput.value.trim()}\n` : ""}${reasonInput.value.trim() ? `Job: ${reasonInput.value.trim()}\n` : ""}\nWe'll see you then. If anything needs to change, just get in touch.`,
     }).catch(err => console.error("Job confirmation email failed to send:", err));
   }
 
