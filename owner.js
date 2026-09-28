@@ -6,7 +6,7 @@ const BUSINESS_NAME = "SMG Gas";
 const EMAILJS_SERVICE_ID = "service_m08877i";
 const EMAILJS_TEMPLATE_ID = "template_khedkjr";
 const EMAILJS_PUBLIC_KEY = "fs6q7ZsiYGhRUtas5";
-const GOOGLE_REVIEW_LINK = "PASTE_YOUR_GOOGLE_REVIEW_LINK_HERE";
+const GOOGLE_REVIEW_LINK = "https://www.google.com/maps?cid=13034852519022957609";
 
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 if (window.emailjs) emailjs.init(EMAILJS_PUBLIC_KEY);
