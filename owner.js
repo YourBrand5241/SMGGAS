@@ -259,7 +259,7 @@ function showDayDetail(period) {
     <strong>Email:</strong> ${period.customer_email || "Not given"}<br>
     <strong>Phone:</strong> ${period.customer_phone || "Not given"}<br>
     <strong>Job details:</strong> ${period.reason || "Not given"}<br><br>
-    ${period.customer_email ? `<button class="secondary-btn" id="complete-current-btn">Mark as Completed &amp; Request Review</button><br><br>` : ""}
+    ${period.customer_email ? `<button class="secondary-btn complete-btn" id="complete-current-btn">Mark as Completed &amp; Request Review</button><br><br>` : ""}
     <button class="secondary-btn cancel-btn" id="unblock-current-btn">Unblock This Period</button>
   `;
   document.getElementById("unblock-current-btn").addEventListener("click", () => unblockPeriod(period.id));
